@@ -7,6 +7,11 @@ int calculate_rent(int vls){
 }
 
 extern "C" {
+
+    //log file manager.
+
+
+
     //ptr test
     void EMSCRIPTEN_KEEPALIVE add_one(int *input_ptr, int *output_ptr){
         *output_ptr = (*input_ptr) + 1;

@@ -4510,7 +4510,6 @@ var ASM_CONSTS = {
       return (...args) => ccall(ident, returnType, argTypes, args, opts);
     };
 
-
   FS.createPreloadedFile = FS_createPreloadedFile;
   FS.staticInit();;
 function checkIncomingModuleAPI() {
@@ -4567,7 +4566,6 @@ var dynCall_iiiiiijj = Module['dynCall_iiiiiijj'] = createExportWrapper('dynCall
 // === Auto-generated postamble setup entry stuff ===
 
 Module['cwrap'] = cwrap;
-Module['setValue'] = setValue;
 var missingLibrarySymbols = [
   'writeI53ToI64',
   'writeI53ToI64Clamped',
@@ -4791,6 +4789,7 @@ var unexportedSymbols = [
   'ccall',
   'freeTableIndexes',
   'functionsInTableMap',
+  'setValue',
   'getValue',
   'PATH',
   'PATH_FS',

@@ -1,7 +1,10 @@
 #include <stdio.h>
+#include <iostream>
+#include <vector>
 #include "h_test.h"
 #include <emscripten.h>
 
+using namespace std;
 int calculate_rent(int vls){
     return vls * 234;
 }
@@ -9,8 +12,9 @@ int calculate_rent(int vls){
 extern "C" {
 
     //log file manager.
+    void EMSCRIPTEN_KEEPALIVE process_buffer(const int & addr, const size_t & len){
 
-
+    }
 
     //ptr test
     void EMSCRIPTEN_KEEPALIVE add_one(int *input_ptr, int *output_ptr){

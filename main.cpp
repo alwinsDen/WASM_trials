@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <vector>
 #include <iostream>
+#include <string>
 #include "h_test.h"
 #include <emscripten.h>
 
@@ -16,8 +17,14 @@ extern "C" {
 
     }
 
-    void EMSCRIPTEN_KEEPALIVE test_buffer(const u_int *buffer, size_t size){
-
+    void EMSCRIPTEN_KEEPALIVE test_buffer(uint8_t *buffer, size_t length){
+        string text(reinterpret_cast<char* >(buffer),length);
+//        for (size_t i = 0; i < length; ++i) {
+//            printf("%c ", buffer[i]);
+//        }
+//        printf("\n");
+        cout<<text<<"\n";
+        cout<<"Buffer being passed"<<"\n";
     }
 
     //ptr test

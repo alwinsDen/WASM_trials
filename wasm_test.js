@@ -1,7 +1,7 @@
 var js_wrapped_fib = Module.cwrap("fib", "number", ["number"]);
 var test_js = Module.cwrap("call_js", null);
 var process_module = Module.cwrap("process_buffer", null, ["number", "number"])
-var test_buffer = Module.cwrap("test_buffer", null, ["string", "number"]);
+var test_buffer = Module.cwrap("test_buffer", null, ["object", "number"]);
 
 function pressBtn() {
     console.log("The result of fib(5) is:", js_wrapped_fib(10));

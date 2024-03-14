@@ -14,7 +14,7 @@ https://marcoselvatici.github.io/WASM_tutorial/
 
 ### Temporary build command with O2 level optimization
 ```shell
-emcc  main.cpp h_test.cpp -O2 -o main.js -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s EXPORTED_FUNCTIONS='["_malloc"]' -s EXTRA_EXPORTED_RUNTIME_METHODS='["cwrap"]'
+emcc  main.cpp h_test.cpp -O2 -o main.js -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s FORCE_FILESYSTEM=1 -s TOTAL_MEMORY=268435456 -s EXPORTED_FUNCTIONS='["_malloc"]' -s EXTRA_EXPORTED_RUNTIME_METHODS='["cwrap"]'
 ```
 
 ### Commands

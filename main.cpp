@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include "h_test.h"
 #include <emscripten.h>
 
@@ -13,6 +13,10 @@ extern "C" {
 
     //log file manager.
     void EMSCRIPTEN_KEEPALIVE process_buffer(const int & addr, const size_t & len){
+
+    }
+
+    void EMSCRIPTEN_KEEPALIVE test_buffer(const u_int *buffer, size_t size){
 
     }
 

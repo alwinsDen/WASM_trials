@@ -23,6 +23,7 @@ let getLogger = document.querySelector(".logger");
 
 function log_render(logString) {
     const node = document.createElement("p");
+    node.className = "loggerPrint";
     const textNode = document.createTextNode(logString);
     node.appendChild(textNode);
     getLogger.appendChild(node);

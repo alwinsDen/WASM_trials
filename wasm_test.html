@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .loggerPrint{
+            font-family: monospace;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 <div>
@@ -11,7 +17,7 @@
     <button onclick="testcache()">Print Cache</button>
     <div class="loggerDiv">
         <p>The LOGS are printed here [20 at a time]:</p>
-        <div class="logger" style="max-height: 800px;overflow:scroll"></div>
+        <div class="logger" style="max-height: 800px;overflow-y:scroll;background: #000000;padding: 10px"></div>
     </div>
     <button onclick="testcache()">Load next 20</button>
 </div>

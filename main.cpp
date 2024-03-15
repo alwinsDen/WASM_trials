@@ -15,6 +15,21 @@ extern "C" {
     vector<string> cached_var;
     EMSCRIPTEN_KEEPALIVE
     int offset_val = 0;
+
+    void EMSCRIPTEN_KEEPALIVE refer_cache(int ccr_limit){
+        cout<<"REFER CACHED CALLED"<<"\n";
+        if(cached_var.size()){
+            for(int i=offset_val;i<offset_val+ccr_limit;i++){
+                const char* myString = cached_var[i].c_str();
+                EM_ASM_({
+                                var str = window.UTF8ToString($0);
+                        log_render(str);
+                        },myString);
+            }
+            offset_val += ccr_limit;
+        }
+    }
+
     void EMSCRIPTEN_KEEPALIVE test_buffer(uint8_t *buffer, size_t length){
         vector<string> vls_data_bank;
         string s_space = "";
@@ -26,23 +41,10 @@ extern "C" {
             }
         }
         cached_var = vls_data_bank;
+        refer_cache(20);
         cout<<"Buffer being passed"<<"\n";
 //        string text(reinterpret_cast<char* >(buffer),length);
 //        cout<<text<<"\n";
-    }
-
-    void EMSCRIPTEN_KEEPALIVE refer_cache(int ccr_limit){
-        cout<<"REFER CACHED CALLED"<<"\n";
-        if(cached_var.size()){
-            for(int i=offset_val;i<offset_val+ccr_limit;i++){
-                const char* myString = cached_var[i].c_str();
-                EM_ASM_({
-                    var str = window.UTF8ToString($0);
-                    log_render(str);
-                },myString);
-            }
-            offset_val += ccr_limit;
-        }
     }
 
     //ptr test

@@ -10,6 +10,14 @@ int calculate_rent(int vls){
     return vls * 234;
 }
 
+//video  processing scope
+extern "C" {
+    void EMSCRIPTEN_KEEPALIVE process_video_buffer(){
+        cout<<"GOT THE VIDEO FEED";
+    }
+}
+
+//complete text processing scope
 extern "C" {
     EMSCRIPTEN_KEEPALIVE
     vector<string> cached_var;

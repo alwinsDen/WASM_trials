@@ -7,7 +7,8 @@
         * {
             box-sizing: border-box;
         }
-        .loggerPrint{
+
+        .loggerPrint {
             font-family: monospace;
             color: #ffffff;
         }
@@ -16,6 +17,8 @@
 <body>
 <div>
     <h1>WASM trials</h1>
+    <h2>Text Logging</h2>
+    <hr/>
     <input type="file" class="inputter"/>
     <button onclick="pressBtn()">Test logs</button>
     <button onclick="testcache()">Print Cache</button>
@@ -24,8 +27,13 @@
         <div class="logger" style="height: 400px;overflow-y:scroll;background: #000000;padding: 10px"></div>
     </div>
     <button onclick="testcache()">Load next 20</button>
+
+    <h2>Video-audio buffer processing</h2>
+    <hr/>
+    <input type="file" class="videoInputClass"/>
 </div>
 <script src="main.js"></script>
 <script src="wasm_test.js"></script>
+<script src="js_manual_source_files/video_process.js"></script>
 </body>
 </html>

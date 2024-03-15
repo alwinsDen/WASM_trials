@@ -6,7 +6,7 @@ https://marcoselvatici.github.io/WASM_tutorial/
 
  - Memory access keys: https://emscripten.org/docs/api_reference/preamble.js.html#type-accessors-for-the-memory-model
 
-### Run Commands
+### WASM build Commands
 
 ```shell
  emcc  main.cpp h_test.cpp -o main.js -s WASM=1 -s EXTRA_EXPORTED_RUNTIME_METHODS='["cwrap"]'

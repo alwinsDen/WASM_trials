@@ -9,6 +9,11 @@
     <input type="file" class="inputter"/>
     <button onclick="pressBtn()">Test logs</button>
     <button onclick="testcache()">Print Cache</button>
+    <div class="loggerDiv">
+        <p>The LOGS are printed here [20 at a time]:</p>
+        <div class="logger" style="max-height: 800px;overflow:scroll"></div>
+    </div>
+    <button onclick="testcache()">Load next 20</button>
 </div>
 <script src="main.js"></script>
 <script src="wasm_test.js"></script>

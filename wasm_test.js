@@ -2,7 +2,7 @@ var js_wrapped_fib = Module.cwrap("fib", "number", ["number"]);
 var test_js = Module.cwrap("call_js", null);
 var process_module = Module.cwrap("process_buffer", null, ["number", "number"])
 var test_buffer = Module.cwrap("test_buffer", null, ["number", "number"]);
-var refer_cache = Module.cwrap("refer_cache", null, []);
+var refer_cache = Module.cwrap("refer_cache", null, ["number"]);
 
 //file input handler
 let fileInput = document.querySelector(".inputter");
@@ -19,12 +19,17 @@ const processor = () => {
 }
 fileInput.addEventListener("change", processor);
 
-function log_render(){
+let getLogger = document.querySelector(".logger");
 
+function log_render(logString) {
+    const node = document.createElement("p");
+    const textNode = document.createTextNode(logString);
+    node.appendChild(textNode);
+    getLogger.appendChild(node);
 }
 
-function testcache(){
-    refer_cache();
+function testcache() {
+    refer_cache(20);
 }
 
 function pressBtn() {

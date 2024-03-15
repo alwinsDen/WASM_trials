@@ -29,6 +29,36 @@ function log_render(logString) {
     getLogger.appendChild(node);
 }
 
+//intersection test for infinite scrolling
+function interscTest() {
+    const node = document.createElement("p");
+    node.className = "EOL loggerPrint";
+    const textNode = document.createTextNode("====================================================EOL===================================================");
+    node.appendChild(textNode);
+    getLogger.appendChild(node);
+    // activate_intersection();
+}
+
+function activate_intersection() {
+    //intersection code setup
+    let options = {
+        root: document.querySelector(".logger"),
+        rootMargin: "0px",
+        threshold: 1.0
+    }
+
+    let observer = new IntersectionObserver(() => {
+        console.log("HEY THERE");
+        // refer_cache(20);
+    }, options);
+
+    //target element
+    let targetElement = document.querySelector(".EOL");
+    observer.observe(targetElement);
+}
+
+// activate_intersection();
+
 function testcache() {
     refer_cache(20);
 }

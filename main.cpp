@@ -11,18 +11,8 @@ int calculate_rent(int vls){
 }
 
 extern "C" {
-
-    //log file manager.
-    void EMSCRIPTEN_KEEPALIVE process_buffer(const int & addr, const size_t & len){
-
-    }
-
     void EMSCRIPTEN_KEEPALIVE test_buffer(uint8_t *buffer, size_t length){
         string text(reinterpret_cast<char* >(buffer),length);
-//        for (size_t i = 0; i < length; ++i) {
-//            printf("%c ", buffer[i]);
-//        }
-//        printf("\n");
         cout<<text<<"\n";
         cout<<"Buffer being passed"<<"\n";
     }

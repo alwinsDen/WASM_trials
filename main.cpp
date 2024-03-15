@@ -11,10 +11,31 @@ int calculate_rent(int vls){
 }
 
 extern "C" {
+    EMSCRIPTEN_KEEPALIVE
+    vector<string> cached_var;
     void EMSCRIPTEN_KEEPALIVE test_buffer(uint8_t *buffer, size_t length){
-        string text(reinterpret_cast<char* >(buffer),length);
-        cout<<text<<"\n";
+        vector<string> vls_data_bank;
+        string s_space = "";
+        for(size_t i=0;i<length;i++){
+            s_space += buffer[i];
+            if(buffer[i]=='\n'){
+                vls_data_bank.push_back(s_space);
+                s_space = "";
+            }
+        }
+        cached_var = vls_data_bank;
         cout<<"Buffer being passed"<<"\n";
+//        string text(reinterpret_cast<char* >(buffer),length);
+//        cout<<text<<"\n";
+    }
+
+    void EMSCRIPTEN_KEEPALIVE refer_cache(){
+        cout<<"REFER CACHED CALLED"<<"\n";
+        if(cached_var.size()){
+            for(int i=0;i<cached_var.size();i++){
+                cout<<cached_var[i];
+            }
+        }
     }
 
     //ptr test

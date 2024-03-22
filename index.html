@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="index.css"/>
     <style>
         * {
             box-sizing: border-box;
         }
-
         .loggerPrint {
             font-family: monospace;
             color: #ffffff;
@@ -17,6 +17,12 @@
 <body>
 <div>
     <h1>WASM trials</h1>
+    <h2>Video Processor</h2>
+    <hr/>
+    <div class="flex-column">
+        <input type="file" class="videoInputClass"/>
+        <video id="video" controls width="500" class="videoPainter"></video>
+    </div>
     <h2>Text Logging</h2>
     <hr/>
     <input type="file" class="inputter"/>
@@ -27,10 +33,6 @@
         <div class="logger" style="height: 400px;overflow-y:scroll;background: #000000;padding: 10px"></div>
     </div>
     <button onclick="testcache()">Load next 20</button>
-
-    <h2>PDF Editor</h2>
-    <hr/>
-    <input type="file" class="videoInputClass" accept="application/pdf"/>
 </div>
 <script src="main.js"></script>
 <script src="wasm_test.js"></script>
